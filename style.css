@@ -90,16 +90,50 @@ h1 {
   border-style: solid;
 }
 
-/* Right Side Arrows*/
+/* Right Side Arrows -- pointing to the left*/
 #timeline ul li:nth-child(odd) div:before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent var(--secondary-color);
 }
 
-/* Right Side Arrows*/
+/* Left Side Arrows-- pointing to the right*/
 #timeline ul li:nth-child(even) div:before {
   right: -15px;
   border-width: 8px 0px 8px 16px;
   border-color: transparent var(--secondary-color);
+}
+
+/* Responsive Media Queries */
+
+/* under 900 make the boxes smaller and bring the left closer to center line */
+@media (max-width: 900px) {
+  #timeline ul li div {
+    width: 250px;
+  }
+  #timeline ul li:nth-child(even) div {
+    left: -284px;
+  }
+}
+
+/* under 600 move line to the right and boxes to the left */
+@media (max-width: 600px) {
+  #timeline ul li {
+    margin-left: 20px;
+  }
+  /* dynamic box size under 600 */
+  #timeline ul li div {
+    width: calc(100vw - 90px);
+  }
+
+  /* Move the left side boxes to the right aligned with the others */
+  #timeline ul li:nth-child(even) div {
+    left: 40px;
+  }
+  /* Point the small arrows to the left */
+  #timeline ul li:nth-child(even) div:before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent var(--secondary-color);
+  }
 }
